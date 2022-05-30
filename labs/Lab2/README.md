@@ -98,53 +98,56 @@ copy running-config startup-config
 #### S1 - S2:
 ```
 S1#ping 192.168.1.2
+
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 192.168.1.2, timeout is 2 seconds:
 !!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/0 ms
 ```
 
 #### S1 - S3:
 ```
 S1#ping 192.168.1.3
+
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 192.168.1.3, timeout is 2 seconds:
-.!!!!
-Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/1 ms
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/0 ms
 ```
 
 #### S2 - S3:
 ```
 S2#ping 192.168.1.3
+
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 192.168.1.3, timeout is 2 seconds:
 !!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/0 ms
 ```
 
 ### 2. Выбор корневого моста
 #### Шаги
 1. Отключить все порты на коммутаторах
 2. Настроить подключенные порты в качестве транковых
-3. Включить порты e0/1 и e0/3 на всех коммутаторах
+3. Включить порты Fa0/2 и Fa0/4 на всех коммутаторах
 4. Отобразить данные протокола spanning-tree
 
 Отключаем все порты на коммутаторах.
 #### Коммутатор S1:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   shutdown
 ```
 
 #### Коммутатор S2:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   shutdown
 ```
 
 #### Коммутатор S3:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   shutdown
 ```
 
@@ -152,58 +155,114 @@ interface range E0/0-3
 
 #### Коммутатор S1:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   switchport trunk allowed vlan 1
   switchport trunk encapsulation dot1q
   switchport mode trunk
 ```
 #### Коммутатор S2:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   switchport trunk allowed vlan 1
   switchport trunk encapsulation dot1q
   switchport mode trunk
 ```
 #### Коммутатор S3:
 ```
-interface range E0/0-3
+interface range Fa0/1-4
   switchport trunk allowed vlan 1
   switchport trunk encapsulation dot1q
   switchport mode trunk
 ```
 
-Включаем порты E0/1 и E0/3 на всех коммутаторах.
+Включаем порты Fa0/2 и Fa0/4 на всех коммутаторах.
 
 #### Коммутатор S1:
 ```
-int range E0/1,E0/3
+int range Fa0/2,Fa0/4
   no shutdown
 ```
 
 #### Коммутатор S2:
 ```
-int range E0/1,E0/3
+int range Fa0/2,Fa0/4
   no shutdown
 ```
 
 #### Коммутатор S3:
 ```
-int range E0/1,E0/3
+int range Fa0/2,Fa0/4
   no shutdown
 ```
 
 Отображаем данные протокола spanning-tree.
 #### Коммутатор S1:
+```
+S1#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        19
+             Port        2(FastEthernet0/2)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
 
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     000C.85BC.E817
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Root FWD 19        128.2    P2p
+Fa0/4            Desg FWD 19        128.4    P2p
+```
 #### Коммутатор S2:
+```
+S2#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             This bridge is the root
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
 
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0001.96C1.5854
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Desg FWD 19        128.2    P2p
+Fa0/4            Desg FWD 19        128.4    P2p
+```
 #### Коммутатор S3:
+```
+S3#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        19
+             Port        2(FastEthernet0/2)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
 
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0060.476A.A71A
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Root FWD 19        128.2    P2p
+Fa0/4            Altn BLK 19        128.4    P2p
+```
 В результате получаем схему:
 
 
 С учетом выходных данных, поступающих с коммутаторов, ответьте на следующие вопросы:
-1. Какой коммутатор является корневым мостом? S1
+1. Какой коммутатор является корневым мостом? S2
 2. Почему этот коммутатор был выбран протоколом spanning-tree в качестве корневого моста? Из-за наименьшего MAC адреса
 3. Какие порты на коммутаторе являются корневыми портами? На коммутаторе S2 e0/1, на коммутаторе S3 e0/3
 4. Какие порты на коммутаторе являются назначенными портами? Порты корневого моста и порт e0/3 S2
