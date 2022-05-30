@@ -13,7 +13,8 @@
 3. Настроить базовые параметры каждого коммутатора
 4. Проверить связь
 
-Создаём сеть согласно топологии:
+Создаём сеть согласно топологии:  
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab2/Topology.JPG)
 
 ### Таблица адресации
 Сеть настроена в соответствии с таблицей адресации:
@@ -198,7 +199,7 @@ int range Fa0/2,Fa0/4
 Отображаем данные протокола spanning-tree.
 #### Коммутатор S1:
 ```
-S1#show span
+S1#show span 
 VLAN0001
   Spanning tree enabled protocol ieee
   Root ID    Priority    32769
