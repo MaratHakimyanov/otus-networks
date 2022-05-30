@@ -7,7 +7,7 @@
 
 [Лабораторная работа №4. IPv4/6.](https://github.com/MaratHakimyanov/otus-networks/tree/main/labs/Lab4) 
 
-[Лабораторная работа №5. PBR](https://github.com/MaratHakimyanov/otus-networks/tree/main/labs/Lab5)
+[Лабораторная работа №5. PBR.](https://github.com/MaratHakimyanov/otus-networks/tree/main/labs/Lab5)
 
 [Лабораторная работа №6. OSPF.](https://github.com/MaratHakimyanov/otus-networks/tree/main/labs/Lab6)
 
