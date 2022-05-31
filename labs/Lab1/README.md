@@ -103,6 +103,26 @@ copy running-config startup-config
 1. Создать сети VLAN на коммутаторах
 2. Назначить сети VLAN соответствующим интерфейсам коммутатора
 
+Результаты шагов 1-2 приведены ниже.
+#### Rоммутатор S1:
+```
+en
+conf t
+hostname S1
+no ip domain-lookup
+enable secret class
+line vty 0 15
+  password cisco
+  login
+line console 0
+  password cisco
+  login
+service password-encryption
+banner motd "Unathorized access is prohibited"
+clock set hh:mm:ss 31 may 2022
+copy running-config startup-config
+```
+
 
 
 
