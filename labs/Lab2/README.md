@@ -262,7 +262,7 @@ Fa0/4            Altn BLK 19        128.4    P2p
 В результате получаем схему:
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab2/STP.JPG)
 
-С учетом выходных данных, поступающих с коммутаторов, ответьте на следующие вопросы:
+С учетом выходных данных, поступающих с коммутаторов, необходимо ответить на следующие вопросы:
 1. Какой коммутатор является корневым мостом? **S2**
 2. Почему этот коммутатор был выбран протоколом spanning-tree в качестве корневого моста? **Из-за наименьшего MAC адреса**
 3. Какие порты на коммутаторе являются корневыми портами? **На коммутаторе S1 Fa0/2, на коммутаторе S3 Fa0/2**
@@ -270,3 +270,160 @@ Fa0/4            Altn BLK 19        128.4    P2p
 5. Какой порт отображается в качестве альтернативного и в настоящее время заблокирован? **На коммутаторе S3 Fa0/4**
 6. Почему протокол spanning-tree выбрал этот порт в качестве невыделенного (заблокированного) порта? **Из-за наибольшего идентификатора порта отправителя (порт Fa0/4 на коммутаторе S2)**
 
+### 3. Наблюдение за процессом выбора протоколом STP порта, исходя из стоимости портов
+#### Шаги
+1. Определить коммутатор с заблокированным портом
+2. Изменить стоимость порта
+3. Просмотрите изменения протокола spanning-tree
+4. Удалите изменения стоимости порта
+
+Протокол spanning-tree блокирует порт F0/4 на коммутаторе с самым высоким идентификатором BID (S3).
+
+Уменьшим стоимость порта корневого моста до 18.
+
+#### Коммутатор S3:
+```
+int Fa0/2
+  spanning-tree cost 18
+```
+
+Повторно вводим команду **show spanning-tree**.
+
+#### Коммутатор S3:
+```
+S3#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        18
+             Port        2(FastEthernet0/2)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0060.476A.A71A
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Root FWD 18        128.2    P2p
+Fa0/4            Desg FWD 19        128.4    P2p
+```
+
+#### Коммутатор S1:
+```
+S1#show span 
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        19
+             Port        2(FastEthernet0/2)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     000C.85BC.E817
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/2            Root FWD 19        128.2    P2p
+Fa0/4            Altn BLK 19        128.4    P2p
+```
+
+Необходимо ответить на следующий вопрос:
+
+Почему протокол spanning-tree заменяет ранее заблокированный порт на назначенный порт и блокирует порт, который был назначенным портом на другом коммутаторе? **У корневого порта изменилась стоимость** 
+
+Удаляем изменение стоимости порта.
+
+#### Коммутатор S3:
+```
+int Fa0/2
+  no spanning-tree cost 18
+```
+
+### 4. Наблюдение за процессом выбора протоколом STP порта, исходя из приоритета портов
+#### Шаги
+1. Определить коммутатор с заблокированным портом
+2. Изменить стоимость порта
+3. Просмотрите изменения протокола spanning-tree
+4. Удалите изменения стоимости порта
+
+Включаем порты Fa0/1 и Fa0/3 на всех коммутаторах.
+
+#### Коммутатор S1:
+```
+int range Fa0/1,Fa0/3
+  no shutdown
+```
+
+#### Коммутатор S2:
+```
+int range Fa0/1,Fa0/3
+  no shutdown
+```
+
+#### Коммутатор S3:
+```
+int range Fa0/1,Fa0/3
+  no shutdown
+```
+
+Вводим команду **show spanning-tree** на коммутаторах некорневого моста.
+
+#### Коммутатор S1:
+```
+S1#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        19
+             Port        1(FastEthernet0/1)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     000C.85BC.E817
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Root FWD 19        128.1    P2p
+Fa0/2            Altn BLK 19        128.2    P2p
+Fa0/3            Desg FWD 19        128.3    P2p
+Fa0/4            Desg FWD 19        128.4    P2p
+```
+
+#### Коммутатор S3:
+```
+S3#show span
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.96C1.5854
+             Cost        19
+             Port        1(FastEthernet0/1)
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0060.476A.A71A
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/3            Altn BLK 19        128.3    P2p
+Fa0/1            Root FWD 19        128.1    P2p
+Fa0/2            Altn BLK 19        128.2    P2p
+Fa0/4            Altn BLK 19        128.4    P2p
+```
+
+Необходимо ответить на следующие вопросы:
+
+Какой порт выбран протоколом STP в качестве порта корневого моста на каждом коммутаторе некорневого моста? **Порт Fa0/1 на коммутаторе S1, Порт Fa0/1 на коммутаторе S3**
+
+Почему протокол STP выбрал эти порты в качестве портов корневого моста на этих коммутаторах? **Из-за наименьшего идентификатора порта отправителя: порт Fa0/1 и Fa0/3 коммутатора S2 (соответственно для портов Fa0/1 S1 и Fa0/1 S3)**
