@@ -123,7 +123,17 @@ clock set hh:mm:ss 31 may 2022
 copy running-config startup-config
 ```
 
-
+#### Rоммутатор S1:
+```
+vlan 3
+  name Management
+vlan 4
+  name Operations
+vlan 7
+  name ParkingLot
+vlan 8
+  name Native
+```
 
 
 
