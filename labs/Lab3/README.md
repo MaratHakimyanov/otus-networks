@@ -14,7 +14,7 @@
 4. Проверить связь
 
 Создаём сеть согласно топологии:  
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab2/Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab3/Topology_DHCP.JPG)
 
 ### Таблица адресации
 Сеть настроена в соответствии с таблицей адресации:
