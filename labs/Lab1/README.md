@@ -331,7 +331,7 @@ GigabitEthernet0/0/1.8 unassigned      YES unset  up                    up
 Vlan1                  unassigned      YES unset  administratively down down
 ```
 
-### 4. Проверка маршрутизации между VLAN
+### 5. Проверка маршрутизации между VLAN
 
 Отправляем эхо-запрос с PC-A на шлюз по умолчанию.
 #### PC-A:
