@@ -15,7 +15,7 @@
 4. Настроить узлы ПК
 
 Создаём сеть согласно топологии:  
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab2/Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab1/Topology_stick.JPG)
 
 ### Таблица адресации
 | Устройство | Интерфейс |  IP-адрес    | Маска подсети | Шлюз по умолчанию |
