@@ -70,7 +70,6 @@
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab3/Lab3.1/Topology_DHCP.JPG)
 
 Настроим базовые параметры маршрутизаторов. 
-
 #### Маршрутизатор R1:
 ```
 en
@@ -91,7 +90,6 @@ interface vlan 1
   no shutdown
 copy running-config startup-config
 ```
-
 #### Маршрутизатор R2:
 ```
 en
