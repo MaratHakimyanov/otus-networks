@@ -1,4 +1,4 @@
-# Лабораторная работа №3. Реализация DHCPv4
+# Лабораторная работа №3.1. Реализация DHCPv4
 ### Цели:
 1. Создание сети и настройка основных параметров устройства
 2. Настройка и проверка двух серверов DHCPv4 на R1
@@ -75,7 +75,7 @@
 en
 conf t
 no ip domain-lookup
-hostname S1
+hostname R1
 enable secret class
 line vty 0 4
   password cisco
@@ -95,7 +95,7 @@ copy running-config startup-config
 en
 conf t
 no ip domain-lookup
-hostname S2
+hostname R2
 enable secret class
 line vty 0 4
   password cisco
