@@ -29,7 +29,7 @@
 | PC-B       | NIC          | DHCP                 | 
 
 Создаём сеть согласно топологии:  
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab3/Lab3.1/Topology_DHCP.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab3/Lab3.2/Topology_DHCP.JPG)
 
 Настроим базовые параметры каждого коммутатора.
 #### Коммутатор S1:
