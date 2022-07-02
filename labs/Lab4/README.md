@@ -278,7 +278,7 @@
 | 403            | 46.26.3.192  | 255.255.255.192     | fde8:8a:fc:1:10:a7:0:0/122  | MGMT                 | SW10:e0/2; VPC:eth0                            |
 
 На основе топологии сети и таблицы адресации была разработана L3-схема сети.
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4%20_Topology.JPG)
 
 
 ### 2. Настройка IP-адресов на всех активных портах
