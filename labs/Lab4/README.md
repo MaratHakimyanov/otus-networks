@@ -16,58 +16,58 @@
 |----------------|--------------|-------------------- | --------------------------- |-----------------------------------------|-------------------|
 |**Москва**      |              |                     |                             |                                         |                   |
 | R14            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R14 - R12         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R12         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:23/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R14 - R12         |
 |                | e0/1         | IPv4                | 192.168.1.14                | 255.255.255.252                         | R14 - R13         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:23/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R13         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:27/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R14 - R13         |
 |                | e0/2         | IPv4                | 46.12.1.1                   | 255.255.255.252                         | R14 - R22         |
-|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:24/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R22         |1
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:20/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R22         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R14 - R22         |
 |                | e0/3         | IPv4                | 192.168.1.1                 | 255.255.255.252                         | R14 - R19         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:26/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R19         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:20/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R14 - R19         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R14 - R19         |
 | R15            | e0/0         | IPv4                | 192.168.1.22                | 255.255.255.252                         | R15 - R13         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R13         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:31/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R15 - R13         |
 |                | e0/1         | IPv4                | 192.168.1.10                | 255.255.255.252                         | R15 - R12         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R12         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:25/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R15 - R12         |
 |                | e0/2         | IPv4                | 46.12.1.5                   | 255.255.255.252                         | R15 - R21         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R21         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:22/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R21         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R15 - R21         |
 |                | e0/3         | IPv4                | 192.168.1.17                | 255.255.255.252                         | R15 - R20         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R20         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:28/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R15 - R20         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R15 - R20         |
 | R19            | e0/0         | IPv4                | 192.168.1.2                 | 255.255.255.252                         | R19 - R14         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:27/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R19 - R14         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R19 - R14         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R19 - R14         |
 | R20            | e0/0         | IPv4                | 192.168.1.18                | 255.255.255.252                         | R20 - R15         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R20 - R15         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:29/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R20 - R15         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R20 - R15         |
 | R12            | e0/0         | IPv4                | 192.168.1.25                | 255.255.255.252                         | R12 - SW4         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - SW4         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:32/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - SW4         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R12 - SW4         |
 |                | e0/1         | IPv4                | 192.168.1.29                | 255.255.255.252                         | R12 - SW5         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - SW5         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:34/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - SW5         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R12 - SW5         |
 |                | e0/2         | IPv4                | 192.168.1.5                 | 255.255.255.252                         | R12 - R14         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - R14         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:22/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - R14         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R12 - R14         |
 |                | e0/3         | IPv4                | 192.168.1.9                 | 255.255.255.252                         | R12 - R15         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - R15         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:24/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R12 - R15         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R12 - R15         |
 | R13            | e0/0         | IPv4                | 192.168.1.37                | 255.255.255.252                         | R13 - SW5         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - SW5         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:38/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - SW5         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R13 - SW5         |
 |                | e0/1         | IPv4                | 192.168.1.33                | 255.255.255.252                         | R13 - SW4         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - SW4         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:36/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - SW4         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R13 - SW4         |
 |                | e0/2         | IPv4                | 192.168.1.21                | 255.255.255.252                         | R13 - R15         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - R15         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:30/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - R15         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R13 - R15         |
 |                | e0/3         | IPv4                | 192.168.1.13                | 255.255.255.252                         | R13 - R14         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:22/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - R14         |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:26/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - R14         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R13 - R14         |
 | SW4            | e0.100       | IPv4                | 192.168.1.129               | 255.255.255.192                         | VLAN 100 e0/0     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 100 e0/0     |0
@@ -79,10 +79,10 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 101 e0/1     |0
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/1     |
 |                | e1/0         | IPv4                | 192.168.1.26                | 255.255.255.252                         | SW4 - R12         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R12         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW4 - R12         |
 |                | e1/1         | IPv4                | 192.168.1.34                | 255.255.255.252                         | SW4 - R13         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R13         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:37/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW4 - R13         |
 | SW5            | e0.100       | IPv4                | 192.168.1.130               | 255.255.255.192                         | VLAN 100 e0/1     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 100 e0/1     |0
@@ -94,10 +94,10 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 101 e0/0     |0
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/0     |
 |                | e1/0         | IPv4                | 192.168.1.38                | 255.255.255.252                         | SW5 - R13         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R13         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:39/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW5 - R13         |
 |                | e1/1         | IPv4                | 192.168.1.30                | 255.255.255.252                         | SW5 - R12         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R12         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:35/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW5 - R12         |
 | SW3            | VLAN 401     | IPv4                | 42.26.1.193                 | 255.255.255.192                         | VLAN 401          |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 401          |0
@@ -113,80 +113,80 @@
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 |**Киторн**      |              |                     |                             |                                         |                   |
 | R22            | e0/0         | IPv4                | 46.12.1.2                   | 255.255.255.252                         | R22 - R14         |
-|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:24/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R14         |1
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R14         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R22 - R14         |
 |                | e0/1         | IPv4                | 46.12.1.10                  | 255.255.255.252                         | R22 - R21         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R21         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:25/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R21         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R22 - R21         |
 |                | e0/2         | IPv4                | 46.12.1.13                  | 255.255.255.252                         | R22 - R23         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R23         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:26/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R22 - R23         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R22 - R23         |
 |**Ламас**       |              |                     |                             |                                         |                   |
 | R21            | e0/0         | IPv4                | 46.12.1.2                   | 255.255.255.252                         | R21 - R15         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R15         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:23/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R15         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R21 - R15         |
 |                | e0/1         | IPv4                | 46.12.1.10                  | 255.255.255.252                         | R21 - R22         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R22         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:24/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R22         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R21 - R22         |
 |                | e0/2         | IPv4                | 46.12.1.13                  | 255.255.255.252                         | R21 - R24         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R24         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:28/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R21 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R21 - R24         |
 |**Триада**      |              |                     |                             |                                         |                   |
 | R23            | e0/0         | IPv4                | 46.12.1.14                  | 255.255.255.252                         | R23 - R22         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R22         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:27/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R22         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R23 - R22         |
 |                | e0/1         | IPv4                | 192.168.2.5                 | 255.255.255.252                         | R23 - R25         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R25         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:44/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R23 - R25         |
 |                | e0/2         | IPv4                | 192.168.2.1                 | 255.255.255.252                         | R23 - R24         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R24         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:42/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R23 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R23 - R24         |
 | R24            | e0/0         | IPv4                | 46.12.1.18                  | 255.255.255.252                         | R24 - R21         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R21         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:29/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R21         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R24 - R21         |
 |                | e0/1         | IPv4                | 192.168.2.9                 | 255.255.255.252                         | R24 - R26         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R26         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:46/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R24 - R26         |
 |                | e0/2         | IPv4                | 192.168.2.2                 | 255.255.255.252                         | R24 - R23         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R23         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:43/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R23         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R24 - R23         |
 |                | e0/3         | IPv4                | 46.12.1.34                  | 255.255.255.252                         | R24 - R18         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R18         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:37/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R24 - R18         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R24 - R18         |
 | R25            | e0/0         | IPv4                | 192.168.2.6                 | 255.255.255.252                         | R25 - R23         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R23         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:45/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R23         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R25 - R23         |
 |                | e0/1         | IPv4                | 46.12.1.21                  | 255.255.255.252                         | R25 - R27         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R27         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:30/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R27         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R25 - R27         |
 |                | e0/2         | IPv4                | 192.168.2.13                | 255.255.255.252                         | R25 - R26         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R26         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:48/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R25 - R26         |
 |                | e0/3         | IPv4                | 46.12.1.25                  | 255.255.255.252                         | R25 - R28         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R28         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:32/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R25 - R28         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R25 - R28         |
 | R26            | e0/0         | IPv4                | 192.168.2.10                | 255.255.255.252                         | R26 - R24         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R24         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:47/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R26 - R24         |
 |                | e0/1         | IPv4                | 46.12.1.29                  | 255.255.255.252                         | R26 - R28         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R28         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:34/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R28         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R26 - R28         |
 |                | e0/2         | IPv4                | 192.168.2.14                | 255.255.255.252                         | R26 - R25         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R25         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:49/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R26 - R25         |
 |                | e0/3         | IPv4                | 46.12.1.38                  | 255.255.255.252                         | R26 - R18         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R18         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:39/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R26 - R18         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R26 - R18         |
 |**Лабытнанги**  |              |                     |                             |                                         |                   |
 | R27            | e0/0         | IPv4                | 46.12.1.22                  | 255.255.255.252                         | R27 - R25         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R27 - R25         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:31/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R27 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R27 - R25         |
 |**Чокурдах**    |              |                     |                             |                                         |                   |
 | R28            | e0/0         | IPv4                | 46.12.1.14                  | 255.255.255.252                         | R28 - R26         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R26         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:35/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R26         |
 |                | e0/1         | IPv4                | 192.168.2.5                 | 255.255.255.252                         | R28 - R25         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R25         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R25         |
 |                | e0.402       | IPv4                | 42.26.2.194                 | 255.255.255.192                         | VLAN 402 e0/2     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402 e0/2     |0
@@ -205,58 +205,58 @@
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 |**С.-Петербург**|              |                     |                             |                                         |                   |
 | R18            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R18 - R16         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R16         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:55/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R16         |
 |                | e0/1         | IPv4                | 192.168.1.14                | 255.255.255.252                         | R18 - R17         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R17         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:53/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R17         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R17         |
 |                | e0/2         | IPv4                | 46.12.1.1                   | 255.255.255.252                         | R18 - R24         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R24         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:36/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R24         |
 |                | e0/3         | IPv4                | 192.168.1.1                 | 255.255.255.252                         | R18 - R26         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R26         |0
+|                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:38/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R26         |
 | R17            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R17 - SW9         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW9         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:58/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW9         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - SW9         |
 |                | e0/1         | IPv4                | 192.168.1.14                | 255.255.255.252                         | R17 - R18         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - R18         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:52/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - R18         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - R18         |
 |                | e0/2         | IPv4                | 46.12.1.1                   | 255.255.255.252                         | R17 - SW10        |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW10        |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:60/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW10        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - SW10        |
 | R16            | e0/0         | IPv4                | 192.168.4.25                | 255.255.255.252                         | R16 - SW10        |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - SW10        |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:64/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - SW10        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R16 - SW10        |
 |                | e0/1         | IPv4                | 192.168.4.5                 | 255.255.255.252                         | R16 - R18         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - R18         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:54/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - R18         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R16 - R18         |
 |                | e0/2         | IPv4                | 192.168.4.21                | 255.255.255.252                         | R16 - SW9         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - SW9         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:62/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - SW9         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R16 - SW9         |
 |                | e0/3         | IPv4                | 192.168.4.9                 | 255.255.255.252                         | R16 - R32         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - R32         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:56/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - R32         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R16 - R32         |
 | R32            | e0/0         | IPv4                | 192.168.4.25                | 255.255.255.252                         | R32 - R16         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R32 - R16         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:57/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R32 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R32 - R16         |
 | SW9            | e0.103       | IPv4                | 192.168.4.1                 | 255.255.255.128                         | VLAN 103 e0/2     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 103 e0/2     |0
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 103 e0/2     |
 |                | e0/3         | IPv4                | 192.168.4.14                | 255.255.255.252                         | SW9 - R17         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R17         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:59/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R17         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW9 - R17         |
 |                | e1/0         | IPv4                | 192.168.4.22                | 255.255.255.252                         | SW9 - R16         |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R16         |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:63/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW9 - R16         |
 | SW10           | e0.403       | IPv4                | 46.26.3.193                 | 255.255.255.192                         | VLAN 403 e0/2     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 403 e0/2     |0
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 403 e0/2     |
 |                | e0/3         | IPv4                | 192.168.4.26                | 255.255.255.252                         | SW10 - R16        |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R16        |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:65/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R16        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW10 - R16        |
 |                | e1/0         | IPv4                | 192.168.4.18                | 255.255.255.252                         | SW10 - R17        |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R17        |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:61/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R17        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW10 - R17        |
 | VPC8           | eth0         | IPv4                | 192.168.4.2                 | 255.255.255.128                         |                   |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
