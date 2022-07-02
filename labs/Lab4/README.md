@@ -237,7 +237,7 @@
 |                | e0/3         | IPv4                | 192.168.4.9                 | 255.255.255.252                         | R16 - R32         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:56/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R16 - R32         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R16 - R32         |
-| R32            | e0/0         | IPv4                | 192.168.4.25                | 255.255.255.252                         | R32 - R16         |
+| R32            | e0/0         | IPv4                | 192.168.4.10                | 255.255.255.252                         | R32 - R16         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:57/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R32 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R32 - R16         |
 | SW9            | e0.103       | IPv4                | 192.168.4.1                 | 255.255.255.128                         | VLAN 103 e0/2     |
