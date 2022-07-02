@@ -204,25 +204,25 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a5:0:3/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 |**С.-Петербург**|              |                     |                             |                                         |                   |
-| R18            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R18 - R16         |
+| R18            | e0/0         | IPv4                | 192.168.4.6                 | 255.255.255.252                         | R18 - R16         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:55/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R16         |
-|                | e0/1         | IPv4                | 192.168.1.14                | 255.255.255.252                         | R18 - R17         |
+|                | e0/1         | IPv4                | 192.168.4.2                 | 255.255.255.252                         | R18 - R17         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:53/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R17         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R17         |
-|                | e0/2         | IPv4                | 46.12.1.1                   | 255.255.255.252                         | R18 - R24         |
+|                | e0/2         | IPv4                | 46.12.1.32                  | 255.255.255.252                         | R18 - R24         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:36/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R24         |
-|                | e0/3         | IPv4                | 192.168.1.1                 | 255.255.255.252                         | R18 - R26         |
+|                | e0/3         | IPv4                | 192.168.1.37                | 255.255.255.252                         | R18 - R26         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:38/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R26         |
-| R17            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R17 - SW9         |
+| R17            | e0/0         | IPv4                | 192.168.4.13                | 255.255.255.252                         | R17 - SW9         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:58/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW9         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - SW9         |
-|                | e0/1         | IPv4                | 192.168.1.14                | 255.255.255.252                         | R17 - R18         |
+|                | e0/1         | IPv4                | 192.168.4.1                 | 255.255.255.252                         | R17 - R18         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:52/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - R18         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - R18         |
-|                | e0/2         | IPv4                | 46.12.1.1                   | 255.255.255.252                         | R17 - SW10        |
+|                | e0/2         | IPv4                | 192.168.4.17                | 255.255.255.252                         | R17 - SW10        |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:60/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R17 - SW10        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R17 - SW10        |
 | R16            | e0/0         | IPv4                | 192.168.4.25                | 255.255.255.252                         | R16 - SW10        |
