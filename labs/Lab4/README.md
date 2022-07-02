@@ -210,7 +210,7 @@
 |                | e0/1         | IPv4                | 192.168.4.2                 | 255.255.255.252                         | R18 - R17         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:53/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R17         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R17         |
-|                | e0/2         | IPv4                | 46.12.1.32                  | 255.255.255.252                         | R18 - R24         |
+|                | e0/2         | IPv4                | 46.12.1.33                  | 255.255.255.252                         | R18 - R24         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:36/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R18 - R24         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R18 - R24         |
 |                | e0/3         | IPv4                | 192.168.1.37                | 255.255.255.252                         | R18 - R26         |
