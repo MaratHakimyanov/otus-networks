@@ -188,14 +188,14 @@
 |                | e0/1         | IPv4                | 192.168.2.5                 | 255.255.255.252                         | R28 - R25         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R25         |
-|                | e0.402       | IPv4                | 42.26.2.194                 | 255.255.255.192                         | VLAN 402 e0/2     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:51/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402 e0/2     |1
+|                | e0.402       | IPv4                | 42.26.2.193                 | 255.255.255.192                         | VLAN 402 e0/2     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:50/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 402 e0/2     |
 |                | e0.102       | IPv4                | 192.168.3.1                 | 255.255.255.0                           | VLAN 102 e0/2     |
 |                |              | IPv6                | fde8:8a:fc:1:10:a5:0:1/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 | VLAN 102 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 102 e0/2     |
-| SW29           | VLAN 402     | IPv4                | 42.26.2.193                 | 255.255.255.192                         | VLAN 402          |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:50/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |1
+| SW29           | VLAN 402     | IPv4                | 42.26.2.194                 | 255.255.255.192                         | VLAN 402          |
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:51/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 402          |
 | VPC30          | eth0         | IPv4                | 192.168.3.2                 | 255.255.255.0                           |                   |
 |                |              | IPv6                | fde8:8a:fc:1:10:a5:0:2/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 |                   |1
