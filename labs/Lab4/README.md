@@ -69,30 +69,30 @@
 |                | e0/3         | IPv4                | 192.168.1.13                | 255.255.255.252                         | R13 - R14         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:26/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R13 - R14         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R13 - R14         |
-| SW4            | e0.100       | IPv4                | 192.168.1.129               | 255.255.255.192                         | VLAN 100 e0/0     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 100 e0/0     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 100 e0/0     |
-|                | e0.401       | IPv4                | 42.26.1.195                 | 255.255.255.192                         | VLAN 401 e0/0     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 401 e0/0     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401 e0/0     |
-|                | e0.101       | IPv4                | 192.168.1.193               | 255.255.255.192                         | VLAN 101 e0/1     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 101 e0/1     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/1     |
+| SW4            | e0.100       | IPv4                | 192.168.1.129               | 255.255.255.192                         | VLAN 100 e0/1     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:40/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 100 e0/1     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 100 e0/1     |
+|                | e0.401       | IPv4                | 42.26.1.195                 | 255.255.255.192                         | VLAN 401 e0/1     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:83/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 401 e0/1     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401 e0/1     |
+|                | e0.101       | IPv4                | 192.168.1.193               | 255.255.255.192                         | VLAN 101 e0/0     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:2/122  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 101 e0/0     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/0     |
 |                | e1/0         | IPv4                | 192.168.1.26                | 255.255.255.252                         | SW4 - R12         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW4 - R12         |
 |                | e1/1         | IPv4                | 192.168.1.34                | 255.255.255.252                         | SW4 - R13         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:37/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW4 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW4 - R13         |
-| SW5            | e0.100       | IPv4                | 192.168.1.130               | 255.255.255.192                         | VLAN 100 e0/1     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 100 e0/1     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 100 e0/1     |
-|                | e0.401       | IPv4                | 42.26.1.196                 | 255.255.255.192                         | VLAN 401 e0/0     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 401 e0/0     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401 e0/0     |
-|                | e0.101       | IPv4                | 192.168.1.194               | 255.255.255.192                         | VLAN 101 e0/0     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 101 e0/0     |0
-|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/0     |
+| SW5            | e0.100       | IPv4                | 192.168.1.130               | 255.255.255.192                         | VLAN 100 e0/0     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:41/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 100 e0/0     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 100 e0/0     |
+|                | e0.401       | IPv4                | 42.26.1.196                 | 255.255.255.192                         | VLAN 401 e0/1     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:84/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 401 e0/1     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401 e0/1     |
+|                | e0.101       | IPv4                | 192.168.1.194               | 255.255.255.192                         | VLAN 101 e0/1     |
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:1/122  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 101 e0/1     |1
+|                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 101 e0/1     |
 |                | e1/0         | IPv4                | 192.168.1.38                | 255.255.255.252                         | SW5 - R13         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:39/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R13         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW5 - R13         |
@@ -100,16 +100,16 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:35/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW5 - R12         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW5 - R12         |
 | SW3            | VLAN 401     | IPv4                | 42.26.1.193                 | 255.255.255.192                         | VLAN 401          |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 401          |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:82/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 401          |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401          |
 | SW2            | VLAN 401     | IPv4                | 42.26.1.194                 | 255.255.255.192                         | VLAN 401          |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 401          |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:81/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 401          |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 401          |
 | VPC1           | eth0         | IPv4                | 192.168.1.195               | 255.255.255.192                         |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:42/122 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 | VPC7           | eth0         | IPv4                | 192.168.1.131               | 255.255.255.192                         |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a4:0:3/122  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 |**Киторн**      |              |                     |                             |                                         |                   |
 | R22            | e0/0         | IPv4                | 46.12.1.2                   | 255.255.255.252                         | R22 - R14         |
@@ -189,19 +189,19 @@
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R25         |
 |                | e0.402       | IPv4                | 42.26.2.194                 | 255.255.255.192                         | VLAN 402 e0/2     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402 e0/2     |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:51/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 402 e0/2     |
 |                | e0.102       | IPv4                | 192.168.3.1                 | 255.255.255.0                           | VLAN 102 e0/2     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 102 e0/2     |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a5:0:1/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 | VLAN 102 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 102 e0/2     |
 | SW29           | VLAN 402     | IPv4                | 42.26.2.193                 | 255.255.255.192                         | VLAN 402          |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:50/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 402          |
 | VPC30          | eth0         | IPv4                | 192.168.3.2                 | 255.255.255.0                           |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a5:0:2/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 | VPC31          | eth0         | IPv4                | 192.168.3.3                 | 255.255.255.0                           |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a5:0:3/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 |**С.-Петербург**|              |                     |                             |                                         |                   |
 | R18            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252                         | R18 - R16         |
@@ -241,7 +241,7 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:57/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R32 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R32 - R16         |
 | SW9            | e0.103       | IPv4                | 192.168.4.1                 | 255.255.255.128                         | VLAN 103 e0/2     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 103 e0/2     |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a6:0:1/121  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff80 | VLAN 103 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 103 e0/2     |
 |                | e0/3         | IPv4                | 192.168.4.14                | 255.255.255.252                         | SW9 - R17         |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:59/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R17         |1
@@ -250,7 +250,7 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:63/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW9 - R16         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW9 - R16         |
 | SW10           | e0.403       | IPv4                | 46.26.3.193                 | 255.255.255.192                         | VLAN 403 e0/2     |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 403 e0/2     |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a7:0:1/122  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 | VLAN 403 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 403 e0/2     |
 |                | e0/3         | IPv4                | 192.168.4.26                | 255.255.255.252                         | SW10 - R16        |
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:65/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R16        |1
@@ -259,14 +259,23 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a3:0:61/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | SW10 - R17        |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | SW10 - R17        |
 | VPC8           | eth0         | IPv4                | 192.168.4.2                 | 255.255.255.128                         |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a6:0:2/121  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff80 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 | VPC            | eth0         | IPv4                | 46.26.3.194                 | 255.255.255.192                         |                   |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:21/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe |                   |0
+|                |              | IPv6                | fde8:8a:fc:1:10:a7:0:2/122  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffc0 |                   |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         |                   |
 
 
-
+### Таблица VLAN
+|      VLAN      | IPv4 подсеть |    Адрес подсети    |         IPv6 подсеть        |       Имя VLAN       |              Устройство:Интерфейс              |
+|----------------|--------------|-------------------- | --------------------------- |----------------------|------------------------------------------------|
+| 100            | e0/0         | IPv4                | 192.168.1.6                 | 255.255.255.252      | SW4:e0/1.100; SW5:e0/0.100; VPC7:eth0          |
+| 101            | 192.168.1.192| 255.255.255.192     | fde8:8a:fc:1:10:a4:0:0/122  | ffff:ffff:ffff:ffff:f| SW4:e0/0.101; SW5:e0/1.101; VPC1:eth0          |
+| 102            | 192.168.3.0  | 255.255.255.0       | fde8:8a:fc:1:10:a5:0:1/120  |                      | R28:e0/2.102                                   |
+| 103            | 192.168.4.0  | 255.255.255.128     | fde8:8a:fc:1:10:a6:0:0/121  | 255.255.255.252      | SW9:e0/2; VPC8:eth0                            |
+| 401            | 42.26.1.192  | 255.255.255.192     | fde8:8a:fc:1:10:a4:0:80/122 | ffff:ffff:ffff:ffff:f| SW4:e0/1.401; SW5:e0/1.401; SW2:e0/0; SW3:e0/0;|
+| 402            | 42.26.2.192  | 255.255.255.192     | fde8:8a:fc:1:10:a3:0:50/127 |                      | SW29:e0/1; R28:e0/2.402                        |
+| 403            | 46.26.3.192  | 255.255.255.192     | fde8:8a:fc:1:10:a7:0:0/122  | 255.255.255.252      | SW10:e0/2; VPC:eth0                            |
 
 
 
