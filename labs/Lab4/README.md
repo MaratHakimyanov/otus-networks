@@ -182,10 +182,10 @@
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:31/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R27 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R27 - R25         |
 |**Чокурдах**    |              |                     |                             |                                         |                   |
-| R28            | e0/0         | IPv4                | 46.12.1.14                  | 255.255.255.252                         | R28 - R26         |
+| R28            | e0/0         | IPv4                | 46.12.1.30                  | 255.255.255.252                         | R28 - R26         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:35/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R26         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R26         |
-|                | e0/1         | IPv4                | 192.168.2.5                 | 255.255.255.252                         | R28 - R25         |
+|                | e0/1         | IPv4                | 46.12.1.26                  | 255.255.255.252                         | R28 - R25         |
 |                |              | IPv6                | 2de8:8a:fc:1:10:a3:0:33/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | R28 - R25         |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | R28 - R25         |
 |                | e0.402       | IPv4                | 42.26.2.193                 | 255.255.255.192                         | VLAN 402 e0/2     |
