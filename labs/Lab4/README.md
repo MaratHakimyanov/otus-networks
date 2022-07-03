@@ -195,7 +195,7 @@
 |                |              | IPv6                | fde8:8a:fc:1:10:a5:0:1/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 | VLAN 102 e0/2     |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 102 e0/2     |
 | SW29           | VLAN 402     | IPv4                | 42.26.2.194                 | 255.255.255.192                         | VLAN 402          |
-|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:51/127 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |1
+|                |              | IPv6                | fde8:8a:fc:1:10:a3:0:51/124 | ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffe | VLAN 402          |1
 |                |              | IPv6 Link-<br/>Local| fe80::14                    |                                         | VLAN 402          |
 | VPC30          | eth0         | IPv4                | 192.168.3.2                 | 255.255.255.0                           |                   |
 |                |              | IPv6                | fde8:8a:fc:1:10:a5:0:2/120  | ffff:ffff:ffff:ffff:ffff:ffff:ffff:ff00 |                   |1
@@ -274,7 +274,7 @@
 | 102            | 192.168.3.0  | 255.255.255.0       | fde8:8a:fc:1:10:a5:0:1/120  | SPB_Client           | R28:e0/2.102                                   |
 | 103            | 192.168.4.0  | 255.255.255.128     | fde8:8a:fc:1:10:a6:0:0/121  | CHO_Client           | SW9:e0/2; VPC8:eth0                            |
 | 401            | 42.26.1.192  | 255.255.255.192     | fde8:8a:fc:1:10:a4:0:80/122 | MGMT                 | SW4:e0/1.401; SW5:e0/1.401; SW2:e0/0; SW3:e0/0 |
-| 402            | 42.26.2.192  | 255.255.255.192     | fde8:8a:fc:1:10:a3:0:50/127 | MGMT                 | SW29:e0/1; R28:e0/2.402                        |
+| 402            | 42.26.2.192  | 255.255.255.192     | fde8:8a:fc:1:10:a3:0:50/124 | MGMT                 | SW29:e0/1; R28:e0/2.402                        |
 | 403            | 46.26.3.192  | 255.255.255.192     | fde8:8a:fc:1:10:a7:0:0/122  | MGMT                 | SW10:e0/2; VPC:eth0                            |
 
 На основе топологии сети и таблицы адресации была разработана L3-схема сети.
