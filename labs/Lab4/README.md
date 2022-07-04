@@ -321,6 +321,32 @@ interface <Тип и номер интерфейса>
   ipv6 unicast-routing
 ```
 
+Также на маршрутизаторах и L3-коммутаторах настроим сабинтерфейсы в соответствии с таблицей vlan и таблицей адресов:
+```
+interface <Тип и номер интерфейса>.<номер сабинтерфейса>
+  description <имя vlan>
+  encapsulation dot1Q <номер vlan>
+  ip address <ipv4 адрес> <маска подсети>
+  ipv6 address <ipv6 адрес>
+  ipv6 address <ipv6 link-local адрес> link-local
+```
+
+На L2-коммутаторах настроим VLAN в соответствии с таблицей VLAN и назначим им IP-адреса:
+```
+
+```
+
+На L2-коммутаторах настроим access и trunk интерфейсы:
+```
+interface <Тип и номер интерфейса>
+  switchport mode access
+  switchport access vlan <номер vlan>
+interface <Тип и номер интерфейса>
+  switchport trunk encapsulation dot1q
+  switchport mode trunk
+  switchport trunk allowed vlan <номера vlan>
+  switchport trunk native vlan 1000  
+```
 
 ### 3. Настройка каждого VPC в каждом офисе в своем VLAN
 
