@@ -1,0 +1,105 @@
+SW29#sh run
+Building configuration...
+
+Current configuration : 1371 bytes
+!
+! Last configuration change at 08:39:16 UTC Mon Jul 4 2022
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname SW29
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$eYdJ$5hzNPix1L4X7PwCYhWpYI1
+!
+no aaa new-model
+!
+!
+!
+!         
+!         
+!         
+!         
+!         
+no ip domain-lookup
+ip cef    
+no ipv6 cef
+!         
+!         
+spanning-tree mode pvst
+spanning-tree extend system-id
+!         
+vlan internal allocation policy ascending
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+interface Ethernet0/0
+ switchport access vlan 102
+ switchport mode access
+!         
+interface Ethernet0/1
+ switchport access vlan 102
+ switchport mode access
+!         
+interface Ethernet0/2
+ switchport trunk allowed vlan 102,402,1000
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 1000
+ switchport mode trunk
+!         
+interface Ethernet0/3
+!         
+interface Vlan102
+ description CHO_Client
+ no ip address
+ shutdown 
+!         
+interface Vlan402
+ description MGMT
+ ip address 46.26.1.194 255.255.255.192
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:51/127
+!         
+ip default-gateway 46.26.1.193
+ip forward-protocol nd
+!         
+no ip http server
+no ip http secure-server
+!         
+!         
+!         
+!         
+!         
+!         
+control-plane
+!         
+banner motd ^CUnathorized access is prohibited^C
+!         
+line con 0
+ password 7 1543595F
+ logging synchronous
+ login    
+line aux 0
+line vty 0 4
+ password 7 13544541
+ login    
+!         
+!         
+end 
