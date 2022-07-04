@@ -1,0 +1,118 @@
+R17#sh run
+Building configuration...
+
+Current configuration : 1268 bytes
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R17
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$UY5p$4.dTbVwFPlEfAvu9alyLy1
+!
+no aaa new-model
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!         
+!         
+!         
+!         
+!         
+!         
+          
+          
+!         
+!         
+!         
+!         
+no ip domain lookup
+ip cef    
+ipv6 unicast-routing
+ipv6 cef  
+!         
+multilink bundle-name authenticated
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+redundancy
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+interface Ethernet0/0
+ ip address 192.168.4.13 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:58/127
+!         
+interface Ethernet0/1
+ ip address 192.168.4.1 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:52/127
+!         
+interface Ethernet0/2
+ ip address 192.168.4.17 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:60/127
+!         
+interface Ethernet0/3
+ no ip address
+ shutdown 
+!         
+ip forward-protocol nd
+!         
+!         
+no ip http server
+no ip http secure-server
+!         
+!         
+!         
+!         
+control-plane
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+banner motd ^CUnathorized access is prohibited^C
+!         
+line con 0
+ password 7 091D1C5A
+ logging synchronous
+ login    
+line aux 0
+line vty 0 4
+ password 7 06575D72
+ login    
+ transport input none
+!         
+!         
+end    
