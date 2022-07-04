@@ -281,7 +281,7 @@
 
 На основе топологии сети и таблицы адресации была разработана L3-схема сети.
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4%20_Topology.JPG)
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology1.JPG)
+#![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology1.JPG)
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology2.JPG)
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology3.JPG)
 ![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab4/Lab4_Topology4.JPG)
