@@ -1,1 +1,135 @@
+R25#sh run
+Building configuration...
 
+Current configuration : 1552 bytes
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R25
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$TFEa$Qz3u0vFQ21IzLOn.Pk41E/
+!
+no aaa new-model
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!         
+!         
+!         
+!         
+!         
+!         
+          
+          
+!         
+!         
+!         
+!         
+no ip domain lookup
+ip cef    
+ipv6 unicast-routing
+ipv6 cef  
+!         
+multilink bundle-name authenticated
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+redundancy
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+interface Ethernet0/0
+ ip address 192.168.2.6 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:45/127
+!         
+interface Ethernet0/1
+ ip address 46.12.1.21 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address 2DE8:8A:FC:1:10:A3:0:30/127
+!         
+interface Ethernet0/2
+ ip address 192.168.2.13 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address FDE8:8A:FC:1:10:A3:0:48/127
+!         
+interface Ethernet0/3
+ ip address 46.12.1.25 255.255.255.252
+ ipv6 address FE80::14 link-local
+ ipv6 address 2DE8:8A:FC:1:10:A3:0:32/127
+!         
+interface Ethernet1/0
+ no ip address
+ shutdown 
+!         
+interface Ethernet1/1
+ no ip address
+ shutdown 
+!         
+interface Ethernet1/2
+ no ip address
+ shutdown 
+!         
+interface Ethernet1/3
+ no ip address
+ shutdown 
+!         
+ip forward-protocol nd
+!         
+!         
+no ip http server
+no ip http secure-server
+!         
+!         
+!         
+!         
+control-plane
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+banner motd ^CUnathorized access is prohibited^C
+!         
+line con 0
+ password 7 08701E1D
+ logging synchronous
+ login    
+line aux 0
+line vty 0 4
+ password 7 055A545C
+ login    
+ transport input none
+!         
+!         
+end  
