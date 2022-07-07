@@ -26,10 +26,7 @@ int <тип и номер интерфейса>
   ip ospf 1 area <номер зоны>
 ```
 
-Настроим Area 0 на маршрутизаторах R14, R15, R12, R13.
-
-
-В выводе running-config маршрутизаторов появятся настройки:
+В выводе **running-config** маршрутизаторов появятся настройки:
 
 #### Маршрутизатор R14:
 ```
@@ -296,7 +293,93 @@ router ospf 1
 
 
 
+На маршрутизаторах R14 и R15 также настроим распространение маршрута по умолчанию:
 
+#### Маршрутизатор R14:
+```
+ip route 0.0.0.0 0.0.0.0 46.12.1.3
+router ospf 1
+  default-information originate
+```
+
+#### Маршрутизатор R15:
+```
+ip route 0.0.0.0 0.0.0.0 46.12.1.7
+router ospf 1
+  default-information originate
+```
+
+Проверим, получают ли R12 и R13 маршруты по умолчанию:
+
+#### Маршрутизатор R12:
+```
+R12#sh ip route ospf
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 192.168.1.10 to network 0.0.0.0
+
+O*E2  0.0.0.0/0 [110/1] via 192.168.1.10, 00:01:12, Ethernet0/3
+                [110/1] via 192.168.1.6, 00:02:30, Ethernet0/2
+      46.0.0.0/26 is subnetted, 1 subnets
+O        46.26.1.192 [110/20] via 192.168.1.30, 00:47:58, Ethernet0/1
+                     [110/20] via 192.168.1.26, 01:14:07, Ethernet0/0
+      192.168.1.0/24 is variably subnetted, 17 subnets, 3 masks
+O IA     192.168.1.0/30 [110/20] via 192.168.1.6, 01:23:37, Ethernet0/2
+O        192.168.1.12/30 [110/20] via 192.168.1.6, 01:23:37, Ethernet0/2
+O IA     192.168.1.16/30 [110/20] via 192.168.1.10, 01:23:37, Ethernet0/3
+O        192.168.1.20/30 [110/20] via 192.168.1.10, 01:23:37, Ethernet0/3
+O        192.168.1.32/30 [110/20] via 192.168.1.26, 01:19:35, Ethernet0/0
+O        192.168.1.36/30 [110/20] via 192.168.1.30, 00:49:11, Ethernet0/1
+O        192.168.1.40/30 [110/20] via 192.168.1.30, 00:49:11, Ethernet0/1
+                         [110/20] via 192.168.1.26, 01:19:45, Ethernet0/0
+O        192.168.1.128/26 [110/20] via 192.168.1.30, 00:48:19, Ethernet0/1
+                          [110/20] via 192.168.1.26, 00:49:36, Ethernet0/0
+O        192.168.1.192/26 [110/20] via 192.168.1.30, 00:47:35, Ethernet0/1
+                          [110/20] via 192.168.1.26, 01:14:18, Ethernet0/0
+```
+
+#### Маршрутизатор R13:
+```
+R13#sh ip route ospf
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 192.168.1.22 to network 0.0.0.0
+
+O*E2  0.0.0.0/0 [110/1] via 192.168.1.22, 00:03:27, Ethernet0/2
+                [110/1] via 192.168.1.14, 00:04:46, Ethernet0/3
+      46.0.0.0/26 is subnetted, 1 subnets
+O        46.26.1.192 [110/20] via 192.168.1.38, 00:50:13, Ethernet0/0
+                     [110/20] via 192.168.1.34, 01:16:22, Ethernet0/1
+      192.168.1.0/24 is variably subnetted, 17 subnets, 3 masks
+O IA     192.168.1.0/30 [110/20] via 192.168.1.14, 01:24:58, Ethernet0/3
+O        192.168.1.4/30 [110/20] via 192.168.1.14, 01:24:58, Ethernet0/3
+O        192.168.1.8/30 [110/20] via 192.168.1.22, 01:24:58, Ethernet0/2
+O IA     192.168.1.16/30 [110/20] via 192.168.1.22, 01:24:58, Ethernet0/2
+O        192.168.1.24/30 [110/20] via 192.168.1.34, 01:21:53, Ethernet0/1
+O        192.168.1.28/30 [110/20] via 192.168.1.38, 00:51:26, Ethernet0/0
+O        192.168.1.40/30 [110/20] via 192.168.1.38, 00:51:26, Ethernet0/0
+                         [110/20] via 192.168.1.34, 01:21:53, Ethernet0/1
+O        192.168.1.128/26 [110/20] via 192.168.1.38, 00:50:34, Ethernet0/0
+                          [110/20] via 192.168.1.34, 00:51:51, Ethernet0/1
+O        192.168.1.192/26 [110/20] via 192.168.1.38, 00:49:50, Ethernet0/0
+                          [110/20] via 192.168.1.34, 01:16:33, Ethernet0/1
+```
 
 
 ### 2. Разделение сетей на зоны
