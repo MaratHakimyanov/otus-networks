@@ -5,7 +5,8 @@
 3. Настроить фильтрацию между зонами
 
 
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab1/Topology_stick.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_1.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_2.JPG)
 
 ### Описание:
 1. Маршрутизаторы R14-R15 находятся в зоне 0 - backbone.
