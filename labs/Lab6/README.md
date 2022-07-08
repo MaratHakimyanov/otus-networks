@@ -4,16 +4,15 @@
 2. Разделить сеть на зоны
 3. Настроить фильтрацию между зонами
 
-
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_1.JPG)
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_2.JPG)
-
 ### Описание:
 1. Маршрутизаторы R14-R15 находятся в зоне 0 - backbone.
 2. Маршрутизаторы R12-R13 находятся в зоне 10. Дополнительно к маршрутам должны получать маршрут по умолчанию.
 3. Маршрутизатор R19 находится в зоне 101 и получает только маршрут по умолчанию.
 4. Маршрутизатор R20 находится в зоне 102 и получает все маршруты, кроме маршрутов до сетей зоны 101.
 5. Настройка для IPv6 повторяет логику IPv4.
+
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_1.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_2.JPG)
 
 ### Решение:
 ### 1. Настройка OSPF офисе "Москва"
