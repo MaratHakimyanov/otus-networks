@@ -8,13 +8,13 @@
 3. R16-17 анонсируют только суммарные префиксы.
 4. Использовать EIGRP named-mode для настройки сети. Настройка осуществляется одновременно для IPv4 и IPv6.
 
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab7/Lab7_Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab8/Lab8_Topology.JPG)
 
 ### Решение:
 ### 1. Настройка EIGRP в "С.-Петербург", использовать named EIGRP
 
 
-#### Коммутатор S1:
+#### Маршрутизатор R18:
 ```
 Для конфигов
 ```
