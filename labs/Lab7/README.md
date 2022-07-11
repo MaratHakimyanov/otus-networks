@@ -8,7 +8,7 @@
 3. R24 находится в зоне 24.
 4. R26 находится в зоне 26. Настройка осуществляется одновременно для IPv4 и IPv6. 
 
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab6/OSPF_Topology_2.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab7/Lab7_Topology.JPG)
 
 ### Решение:
 ### 1. Настройка IS-IS в офисе "Триада"
