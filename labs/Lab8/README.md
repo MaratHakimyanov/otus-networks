@@ -14,10 +14,64 @@
 ### 1. Настройка EIGRP в "С.-Петербург", использовать named EIGRP
 
 
+Настроим именованный EIGRP на R18.
 #### Маршрутизатор R18:
 ```
-Для конфигов
+router eigrp LAB8
+  address-family ipv4 unicast autonomous-system 1
+  topology base
+    exit-af-topology  
+  network 192.168.4.0
+  eigrp router-id 18.18.18.18
+  no shutdown
+  exit-address-family
+  af-int e0/2
+    passive-int
+  af-int e0/3
+    passive-int
+
+address-family ipv6 unicast autonomous-system 1
+  topology base
+    exit-af-topology  
+  eigrp router-id 18.18.18.18
+  no shutdown
+  exit-address-family
+  af-int e0/2
+    passive-int
+  af-int e0/3
+    passive-int
 ```
+
+
+Настроим именованный EIGRP на R18.
+#### Маршрутизатор R18:
+```
+router eigrp LAB8
+  address-family ipv4 unicast autonomous-system 1
+  topology base
+    exit-af-topology  
+  network 192.168.4.0
+  eigrp router-id 18.18.18.18
+  no shutdown
+  exit-address-family
+  af-int e0/2
+    passive-int
+  af-int e0/3
+    passive-int
+
+address-family ipv6 unicast autonomous-system 1
+  topology base
+    exit-af-topology  
+  eigrp router-id 18.18.18.18
+  no shutdown
+  exit-address-family
+  af-int e0/2
+    passive-int
+  af-int e0/3
+    passive-int
+```
+
+
 
 
 
