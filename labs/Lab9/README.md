@@ -10,7 +10,7 @@
 4. Настроить eBGP между офисом "С.-Петербург" и провайдером "Триада".
 5. Организовать IP доступность между пограничным роутерами офисов "Москва" и "С.-Петербург".
 
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab7/Lab7_Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab9/Lab9_Topology.JPG)
 
 ### Решение:
 ### 1. Настройка eBGP между офисом "Москва" и двумя провайдерами - "Киторн" и "Ламас"
