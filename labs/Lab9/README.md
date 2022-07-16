@@ -368,3 +368,123 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 46.12.1.38      4          520       9       7        1    0    0 00:05:26        0
 ```
 ### 5. Организация IP доступности между пограничным роутерами офисов "Москва" и "С.-Петербург"
+
+Настроим на R22 передачу маршрутов к подсети R14 и R21 для IPv4 и IPv6.
+#### Маршрутизатор R22:
+```
+router bgp 101
+  address-family ipv4
+    network 46.12.1.0 mask 255.255.255.252
+    network 46.12.1.8 mask 255.255.255.252  
+    exit-address-family
+  address-family ipv6
+    network 2DE8:8A:FC:1:10:A3:0:20/127
+    network 2DE8:8A:FC:1:10:A3:0:24/127
+    exit-address-family
+```
+Настроим на R21 передачу маршрутов к подсети R15 для IPv4 и IPv6. 
+#### Маршрутизатор R21:
+```
+router bgp 301
+  address-family ipv4
+    network 46.12.1.4 mask 255.255.255.252 
+    exit-address-family
+  address-family ipv6
+    network 2DE8:8A:FC:1:10:A3:0:22/127
+    exit-address-family
+```
+Настроим на R24 передачу маршрутов к подсети R18 для IPv4 и IPv6.
+#### Маршрутизатор R24:
+```
+router bgp 520
+  address-family ipv4
+    network 46.12.1.32 mask 255.255.255.252 
+    exit-address-family
+  address-family ipv6
+    network 2DE8:8A:FC:1:10:A3:0:36/127
+    exit-address-family
+```
+
+Проверим доступность между пограничными роутерами офисами "Москва" и "С.-Петербург" с помощью команды **show ip route bgp** и запуская **ping**.
+#### Маршрутизатор R18:
+```
+R18#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      46.0.0.0/8 is variably subnetted, 7 subnets, 2 masks
+B        46.12.1.0/30 [20/0] via 46.12.1.34, 00:16:47
+B        46.12.1.4/30 [20/0] via 46.12.1.34, 00:13:58
+B        46.12.1.8/30 [20/0] via 46.12.1.34, 00:16:16
+R18#ping 46.12.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 46.12.1.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+R18#ping 46.12.1.5
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 46.12.1.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+```
+
+#### Маршрутизатор R14:
+```
+R14#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 46.12.1.3 to network 0.0.0.0
+
+      46.0.0.0/8 is variably subnetted, 5 subnets, 2 masks
+B        46.12.1.4/30 [20/0] via 46.12.1.2, 00:15:39
+B        46.12.1.8/30 [20/0] via 46.12.1.2, 00:17:57
+B        46.12.1.32/30 [20/0] via 46.12.1.2, 00:13:37
+R14#ping 46.12.1.33
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 46.12.1.33, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+```
+
+#### Маршрутизатор R15:
+```
+R15#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 46.12.1.7 to network 0.0.0.0
+
+      46.0.0.0/8 is variably subnetted, 5 subnets, 2 masks
+B        46.12.1.0/30 [20/0] via 46.12.1.6, 00:20:19
+B        46.12.1.8/30 [20/0] via 46.12.1.6, 00:19:47
+B        46.12.1.32/30 [20/0] via 46.12.1.6, 00:15:27
+R15#ping 46.12.1.33
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 46.12.1.33, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+```
