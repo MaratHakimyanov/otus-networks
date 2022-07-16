@@ -16,17 +16,353 @@
 ### 1. Настройка iBGP в офисом "Москва" между маршрутизаторами R14 и R15
 
 Настроим на R14 и R15 loopback-интерфейсы, настроим на них OSPF, и настроим между ними соседство iBGP.  
-#### Маршрутизатор R1:
+#### Маршрутизатор R14:
 ```
-Для конфигов
+int lo0
+  ip address 14.14.14.14 255.255.255.255
+  ip ospf 1 area 0
+router bgp 1001
+  neighbor 15.15.15.15 remote-as 1001
+  neighbor 15.15.15.15 update-source lo0
+  address-family ipv4
+    neighbor 15.15.15.15 activate
+    neighbor 15.15.15.15 next-hop-self
+  exit-address-family
+```
+
+#### Маршрутизатор R15:
+```
+int lo0
+  ip address 15.15.15.15 255.255.255.255
+  ip ospf 1 area 0
+router bgp 1001
+  neighbor 14.14.14.14 remote-as 1001
+  neighbor 14.14.14.14 update-source lo0
+  address-family ipv4
+    neighbor 14.14.14.14 activate
+    neighbor 14.14.14.14 next-hop-self
+  exit-address-family
+```
+
+Проверим правильность настройки с помощью команды **show ip bgp summary**.
+#### Маршрутизатор R14:
+```
+R14#sh ip bgp summary 
+BGP router identifier 14.14.14.14, local AS number 1001
+BGP table version is 10, main routing table version 10
+4 network entries using 560 bytes of memory
+10 path entries using 800 bytes of memory
+5/3 BGP path/bestpath attribute entries using 720 bytes of memory
+5 BGP AS-PATH entries using 120 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 2200 total bytes of memory
+BGP activity 4/0 prefixes, 12/2 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+15.15.15.15     4         1001      20      20       10    0    0 00:09:26        2
+2DE8:8A:FC:1:10:A3:0:21
+                4          101      45      48       10    0    0 00:35:38        4
+46.12.1.2       4          101      44      48       10    0    0 00:35:37        4
+```
+
+#### Маршрутизатор R15:
+```
+R15#sh ip bgp summary 
+BGP router identifier 15.15.15.15, local AS number 1001
+BGP table version is 7, main routing table version 7
+4 network entries using 560 bytes of memory
+10 path entries using 800 bytes of memory
+4/3 BGP path/bestpath attribute entries using 576 bytes of memory
+4 BGP AS-PATH entries using 96 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 2032 total bytes of memory
+BGP activity 4/0 prefixes, 13/3 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+14.14.14.14     4         1001      13      13        7    0    0 00:03:00        2
+2DE8:8A:FC:1:10:A3:0:23
+                4          301      37      38        7    0    0 00:29:11        4
+46.12.1.6       4          301      37      38        7    0    0 00:29:04        4
 ```
 
 ### 2. Настройка iBGP в провайдере "Триада"
 
+Настроим на R23,R24,R25,R26 loopback-интерфейсы, настроим на них OSPF, и настроим между ними соседство iBGP.
 
+#### Маршрутизатор R23:
+```
+int lo0
+  ip address 23.23.23.23 255.255.255.255
+  ip router isis
+router bgp 520
+  neighbor 24.24.24.24 remote-as 520
+  neighbor 24.24.24.24 update-source Loopback0
+  neighbor 25.25.25.25 remote-as 520
+  neighbor 25.25.25.25 update-source Loopback0
+  neighbor 26.26.26.26 remote-as 520
+  neighbor 26.26.26.26 update-source Loopback0
+  address-family ipv4
+    neighbor 24.24.24.24 activate
+    neighbor 24.24.24.24 next-hop-self
+    neighbor 25.25.25.25 activate
+    neighbor 25.25.25.25 next-hop-self
+    neighbor 26.26.26.26 activate
+    neighbor 26.26.26.26 next-hop-self
+  exit-address-family
+```
 
+#### Маршрутизатор R24:
+```
+int lo0
+  ip address 24.24.24.24 255.255.255.255
+  ip router isis
+router bgp 520
+  neighbor 23.23.23.23 remote-as 520
+  neighbor 23.23.23.23 update-source Loopback0
+  neighbor 25.25.25.25 remote-as 520
+  neighbor 25.25.25.25 update-source Loopback0
+  neighbor 26.26.26.26 remote-as 520
+  neighbor 26.26.26.26 update-source Loopback0
+  address-family ipv4
+    neighbor 23.23.23.23 activate
+    neighbor 23.23.23.23 next-hop-self
+    neighbor 25.25.25.25 activate
+    neighbor 25.25.25.25 next-hop-self
+    neighbor 26.26.26.26 activate
+    neighbor 26.26.26.26 next-hop-self
+  exit-address-family
+```
 
+#### Маршрутизатор R25:
+```
+int lo0
+  ip address 25.25.25.25 255.255.255.255
+  ip router isis
+router bgp 520
+  neighbor 23.23.23.23 remote-as 520
+  neighbor 23.23.23.23 update-source Loopback0
+  neighbor 26.26.26.26 remote-as 520
+  neighbor 26.26.26.26 update-source Loopback0
+  neighbor 24.24.24.24 remote-as 520
+  neighbor 24.24.24.24 update-source Loopback0
+  address-family ipv4
+    neighbor 23.23.23.23 activate
+    neighbor 23.23.23.23 next-hop-self
+    neighbor 24.24.24.24 activate
+    neighbor 24.24.24.24 next-hop-self
+    neighbor 26.26.26.26 activate
+    neighbor 26.26.26.26 next-hop-self
+  exit-address-family
+```
+
+#### Маршрутизатор R26:
+```
+int lo0
+  ip address 26.26.26.26 255.255.255.255
+  ip router isis
+router bgp 520
+  neighbor 23.23.23.23 remote-as 520
+  neighbor 23.23.23.23 update-source Loopback0
+  neighbor 25.25.25.25 remote-as 520
+  neighbor 25.25.25.25 update-source Loopback0
+  neighbor 24.24.24.24 remote-as 520
+  neighbor 24.24.24.24 update-source Loopback0
+  address-family ipv4
+    neighbor 23.23.23.23 activate
+    neighbor 23.23.23.23 next-hop-self
+    neighbor 24.24.24.24 activate
+    neighbor 24.24.24.24 next-hop-self
+    neighbor 25.25.25.25 activate
+    neighbor 25.25.25.25 next-hop-self
+  exit-address-family
+```
+
+Проверим правильность настройки с помощью команды **show ip bgp summary**.
+#### Маршрутизатор R23:
+```
+R23#sh ip bgp summary 
+BGP router identifier 23.23.23.23, local AS number 520
+BGP table version is 6, main routing table version 6
+4 network entries using 560 bytes of memory
+8 path entries using 640 bytes of memory
+4/3 BGP path/bestpath attribute entries using 576 bytes of memory
+3 BGP AS-PATH entries using 72 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 1848 total bytes of memory
+BGP activity 4/0 prefixes, 10/2 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+24.24.24.24     4          520      29      25        6    0    0 00:17:21        2
+25.25.25.25     4          520      20      20        6    0    0 00:12:49        0
+26.26.26.26     4          520      14      14        6    0    0 00:07:30        0
+2DE8:8A:FC:1:10:A3:0:26
+                4          101     119     117        6    0    0 01:41:36        3
+46.12.1.13      4          101     117     117        6    0    0 01:41:28        3
+```
+
+#### Маршрутизатор R24:
+```
+R24#sh ip bgp summary 
+BGP router identifier 24.24.24.24, local AS number 520
+BGP table version is 7, main routing table version 7
+4 network entries using 560 bytes of memory
+9 path entries using 720 bytes of memory
+4/3 BGP path/bestpath attribute entries using 576 bytes of memory
+3 BGP AS-PATH entries using 72 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 1928 total bytes of memory
+BGP activity 5/0 prefixes, 11/1 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+23.23.23.23     4          520      24      28        7    0    0 00:16:38        2
+25.25.25.25     4          520      21      18        7    0    0 00:11:18        0
+26.26.26.26     4          520      16      12        7    0    0 00:06:13        0
+2DE8:8A:FC:1:10:A3:0:28
+                4          301     115     116        7    0    0 01:40:52        3
+2DE8:8A:FC:1:10:A3:0:36
+                4         2042     115     115        7    0    0 01:40:53        0
+46.12.1.17      4          301     117     116        7    0    0 01:40:51        3
+46.12.1.33      4         2042     114     117        7    0    0 01:40:54        0
+```
+
+#### Маршрутизатор R25:
+```
+R25#sh ip bgp summary 
+BGP router identifier 25.25.25.25, local AS number 520
+BGP table version is 5, main routing table version 5
+4 network entries using 560 bytes of memory
+4 path entries using 320 bytes of memory
+3/3 BGP path/bestpath attribute entries using 432 bytes of memory
+2 BGP AS-PATH entries using 48 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 1360 total bytes of memory
+BGP activity 4/0 prefixes, 4/0 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+23.23.23.23     4          520      18      18        5    0    0 00:11:36        2
+24.24.24.24     4          520      17      21        5    0    0 00:10:48        2
+26.26.26.26     4          520      13       9        5    0    0 00:05:06        0
+```
+
+#### Маршрутизатор R26:
+```
+R26#sh ip bgp summary 
+BGP router identifier 26.26.26.26, local AS number 520
+BGP table version is 5, main routing table version 5
+4 network entries using 560 bytes of memory
+4 path entries using 320 bytes of memory
+3/3 BGP path/bestpath attribute entries using 432 bytes of memory
+2 BGP AS-PATH entries using 48 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 1360 total bytes of memory
+BGP activity 4/0 prefixes, 4/0 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+23.23.23.23     4          520       9      10        5    0    0 00:03:33        2
+24.24.24.24     4          520       9      13        5    0    0 00:02:59        2
+25.25.25.25     4          520       6      10        5    0    0 00:02:22        0
+2DE8:8A:FC:1:10:A3:0:38
+                4         2042     112     112        5    0    0 01:37:36        0
+46.12.1.37      4         2042     113     113        5    0    0 01:37:36        0
+```
 
 ### 3. Настройка офиса "Москва"
 
+Необходимо настроить офис "Москва" так, чтобы приоритетным провайдером стал "Ламас". Для этого настроим на R15 route-map для R21, меняющий local-pregerence на 250. Настроить route-map на BGP соседа R21.
+
+#### Маршрутизатор R15:
+```
+route-map AS301 permit 10
+  set local-preference 250
+router bgp 1001
+  address-family ipv4
+    neighbor 46.12.1.6 route-map AS301 in
+  address-family ipv6
+    neighbor 2de8:8a:fc:1:10:a3:0:23 route-map AS301 in
+```
+
+Проверим правильность настройки с помощью команды **show ip route bgp**.
+#### Маршрутизатор R15:
+```
+R15#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 46.12.1.7 to network 0.0.0.0
+
+      46.0.0.0/8 is variably subnetted, 6 subnets, 3 masks
+B        46.12.1.0/30 [200/0] via 14.14.14.14, 01:41:07
+B        46.12.1.8/30 [200/0] via 14.14.14.14, 01:41:07
+B        46.12.1.32/30 [20/0] via 46.12.1.6, 02:06:16
+```
+
+#### Маршрутизатор R14:
+```
+R14#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 46.12.1.3 to network 0.0.0.0
+
+      46.0.0.0/8 is variably subnetted, 6 subnets, 3 masks
+B        46.12.1.4/30 [200/0] via 15.15.15.15, 01:42:10
+B        46.12.1.8/30 [20/0] via 46.12.1.2, 02:08:54
+B        46.12.1.32/30 [20/0] via 46.12.1.2, 00:45:41
+```
+
 ### 4. Настройка офиса "С.-Петербург"
+
+Необходимо настроить офис "С.-Петербург" так, чтобы трафик до любого офиса распределялся по двум линкам одновременно.
+
+#### Маршрутизатор R18:
+```
+router bgp 2042
+  address-family ipv4
+    maximum-path 2
+```
+
+Проверим правильность настройки с помощью команды **show ip route bgp**.
+
+#### Маршрутизатор R18:
+```
+R18#sh ip route bgp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      46.0.0.0/8 is variably subnetted, 7 subnets, 2 masks
+B        46.12.1.0/30 [20/0] via 46.12.1.38, 00:06:53
+                      [20/0] via 46.12.1.34, 00:06:53
+B        46.12.1.4/30 [20/0] via 46.12.1.38, 00:06:53
+                      [20/0] via 46.12.1.34, 00:06:53
+B        46.12.1.8/30 [20/0] via 46.12.1.38, 00:06:53
+                      [20/0] via 46.12.1.34, 00:06:53
+```
