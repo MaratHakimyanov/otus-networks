@@ -9,7 +9,7 @@
 3. Настроить провайдер "Киторн" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию.
 4. Настроить провайдер "Ламас" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию и префикс офиса "С.-Петербург".
 
-![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab7/Lab7_Topology.JPG)
+![alt-текст](https://github.com/MaratHakimyanov/otus-networks/blob/main/labs/Lab11/Lab11_Topology.JPG)
 
 ### Решение:
 ### 1. Настройка фильтрации в офисе "Москва"
