@@ -89,7 +89,7 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 
 ### 2. Настройка iBGP в провайдере "Триада"
 
-Настроим на R23,R24,R25,R26 loopback-интерфейсы, настроим на них OSPF, и настроим между ними соседство iBGP.
+Настроим на R23,R24,R25,R26 loopback-интерфейсы, настроим на них IS-IS, и настроим между ними iBGP. Настроим R23 в качестве  Route-Reflector.
 
 #### Маршрутизатор R23:
 ```
@@ -99,17 +99,13 @@ int lo0
 router bgp 520
   neighbor 24.24.24.24 remote-as 520
   neighbor 24.24.24.24 update-source Loopback0
+  neighbor 24.24.24.24 route-reflector-client
   neighbor 25.25.25.25 remote-as 520
   neighbor 25.25.25.25 update-source Loopback0
+  neighbor 25.25.25.25 route-reflector-client
   neighbor 26.26.26.26 remote-as 520
   neighbor 26.26.26.26 update-source Loopback0
-  address-family ipv4
-    neighbor 24.24.24.24 activate
-    neighbor 24.24.24.24 next-hop-self
-    neighbor 25.25.25.25 activate
-    neighbor 25.25.25.25 next-hop-self
-    neighbor 26.26.26.26 activate
-    neighbor 26.26.26.26 next-hop-self
+  neighbor 26.26.26.26 route-reflector-client
   exit-address-family
 ```
 
@@ -121,18 +117,6 @@ int lo0
 router bgp 520
   neighbor 23.23.23.23 remote-as 520
   neighbor 23.23.23.23 update-source Loopback0
-  neighbor 25.25.25.25 remote-as 520
-  neighbor 25.25.25.25 update-source Loopback0
-  neighbor 26.26.26.26 remote-as 520
-  neighbor 26.26.26.26 update-source Loopback0
-  address-family ipv4
-    neighbor 23.23.23.23 activate
-    neighbor 23.23.23.23 next-hop-self
-    neighbor 25.25.25.25 activate
-    neighbor 25.25.25.25 next-hop-self
-    neighbor 26.26.26.26 activate
-    neighbor 26.26.26.26 next-hop-self
-  exit-address-family
 ```
 
 #### Маршрутизатор R25:
@@ -143,18 +127,6 @@ int lo0
 router bgp 520
   neighbor 23.23.23.23 remote-as 520
   neighbor 23.23.23.23 update-source Loopback0
-  neighbor 26.26.26.26 remote-as 520
-  neighbor 26.26.26.26 update-source Loopback0
-  neighbor 24.24.24.24 remote-as 520
-  neighbor 24.24.24.24 update-source Loopback0
-  address-family ipv4
-    neighbor 23.23.23.23 activate
-    neighbor 23.23.23.23 next-hop-self
-    neighbor 24.24.24.24 activate
-    neighbor 24.24.24.24 next-hop-self
-    neighbor 26.26.26.26 activate
-    neighbor 26.26.26.26 next-hop-self
-  exit-address-family
 ```
 
 #### Маршрутизатор R26:
@@ -165,18 +137,6 @@ int lo0
 router bgp 520
   neighbor 23.23.23.23 remote-as 520
   neighbor 23.23.23.23 update-source Loopback0
-  neighbor 25.25.25.25 remote-as 520
-  neighbor 25.25.25.25 update-source Loopback0
-  neighbor 24.24.24.24 remote-as 520
-  neighbor 24.24.24.24 update-source Loopback0
-  address-family ipv4
-    neighbor 23.23.23.23 activate
-    neighbor 23.23.23.23 next-hop-self
-    neighbor 24.24.24.24 activate
-    neighbor 24.24.24.24 next-hop-self
-    neighbor 25.25.25.25 activate
-    neighbor 25.25.25.25 next-hop-self
-  exit-address-family
 ```
 
 Проверим правильность настройки с помощью команды **show ip bgp summary**.
@@ -184,92 +144,88 @@ router bgp 520
 ```
 R23#sh ip bgp summary 
 BGP router identifier 23.23.23.23, local AS number 520
-BGP table version is 6, main routing table version 6
+BGP table version is 11, main routing table version 11
 4 network entries using 560 bytes of memory
-8 path entries using 640 bytes of memory
-4/3 BGP path/bestpath attribute entries using 576 bytes of memory
-3 BGP AS-PATH entries using 72 bytes of memory
+10 path entries using 800 bytes of memory
+5/3 BGP path/bestpath attribute entries using 720 bytes of memory
+4 BGP AS-PATH entries using 96 bytes of memory
 0 BGP route-map cache entries using 0 bytes of memory
 0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 1848 total bytes of memory
-BGP activity 4/0 prefixes, 10/2 paths, scan interval 60 secs
+BGP using 2176 total bytes of memory
+BGP activity 6/2 prefixes, 13/3 paths, scan interval 60 secs
 
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-24.24.24.24     4          520      29      25        6    0    0 00:17:21        2
-25.25.25.25     4          520      20      20        6    0    0 00:12:49        0
-26.26.26.26     4          520      14      14        6    0    0 00:07:30        0
+24.24.24.24     4          520      23      25       11    0    0 00:15:26        4
+25.25.25.25     4          520      44      52       11    0    0 00:36:42        0
+26.26.26.26     4          520      44      47       11    0    0 00:36:00        0
 2DE8:8A:FC:1:10:A3:0:26
-                4          101     119     117        6    0    0 01:41:36        3
-46.12.1.13      4          101     117     117        6    0    0 01:41:28        3
+                4          101      15      15       11    0    0 00:08:24        3
+46.12.1.13      4          101      15      18       11    0    0 00:08:14        3
 ```
 
 #### Маршрутизатор R24:
 ```
 R24#sh ip bgp summary 
 BGP router identifier 24.24.24.24, local AS number 520
-BGP table version is 7, main routing table version 7
+BGP table version is 5, main routing table version 5
 4 network entries using 560 bytes of memory
-9 path entries using 720 bytes of memory
-4/3 BGP path/bestpath attribute entries using 576 bytes of memory
-3 BGP AS-PATH entries using 72 bytes of memory
+10 path entries using 800 bytes of memory
+5/3 BGP path/bestpath attribute entries using 720 bytes of memory
+4 BGP AS-PATH entries using 96 bytes of memory
 0 BGP route-map cache entries using 0 bytes of memory
 0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 1928 total bytes of memory
-BGP activity 5/0 prefixes, 11/1 paths, scan interval 60 secs
+BGP using 2176 total bytes of memory
+BGP activity 5/0 prefixes, 11/0 paths, scan interval 60 secs
 
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-23.23.23.23     4          520      24      28        7    0    0 00:16:38        2
-25.25.25.25     4          520      21      18        7    0    0 00:11:18        0
-26.26.26.26     4          520      16      12        7    0    0 00:06:13        0
+23.23.23.23     4          520      24      22        5    0    0 00:14:55        3
 2DE8:8A:FC:1:10:A3:0:28
-                4          301     115     116        7    0    0 01:40:52        3
+                4          301      14      17        5    0    0 00:07:53        3
 2DE8:8A:FC:1:10:A3:0:36
-                4         2042     115     115        7    0    0 01:40:53        0
-46.12.1.17      4          301     117     116        7    0    0 01:40:51        3
-46.12.1.33      4         2042     114     117        7    0    0 01:40:54        0
+                4         2042      13      14        5    0    0 00:08:03        0
+46.12.1.17      4          301      13      16        5    0    0 00:07:55        3
+46.12.1.33      4         2042      14      16        5    0    0 00:08:02        0
 ```
 
 #### Маршрутизатор R25:
 ```
 R25#sh ip bgp summary 
 BGP router identifier 25.25.25.25, local AS number 520
-BGP table version is 5, main routing table version 5
+BGP table version is 4, main routing table version 4
 4 network entries using 560 bytes of memory
 4 path entries using 320 bytes of memory
-3/3 BGP path/bestpath attribute entries using 432 bytes of memory
+3/1 BGP path/bestpath attribute entries using 432 bytes of memory
+1 BGP rrinfo entries using 24 bytes of memory
 2 BGP AS-PATH entries using 48 bytes of memory
 0 BGP route-map cache entries using 0 bytes of memory
 0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 1360 total bytes of memory
-BGP activity 4/0 prefixes, 4/0 paths, scan interval 60 secs
+BGP using 1384 total bytes of memory
+BGP activity 4/0 prefixes, 7/3 paths, scan interval 60 secs
 
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-23.23.23.23     4          520      18      18        5    0    0 00:11:36        2
-24.24.24.24     4          520      17      21        5    0    0 00:10:48        2
-26.26.26.26     4          520      13       9        5    0    0 00:05:06        0
+23.23.23.23     4          520      51      43        4    0    0 00:35:43        4
 ```
 
 #### Маршрутизатор R26:
 ```
 R26#sh ip bgp summary 
 BGP router identifier 26.26.26.26, local AS number 520
-BGP table version is 5, main routing table version 5
+BGP table version is 4, main routing table version 4
 4 network entries using 560 bytes of memory
 4 path entries using 320 bytes of memory
-3/3 BGP path/bestpath attribute entries using 432 bytes of memory
+3/1 BGP path/bestpath attribute entries using 432 bytes of memory
+1 BGP rrinfo entries using 24 bytes of memory
 2 BGP AS-PATH entries using 48 bytes of memory
 0 BGP route-map cache entries using 0 bytes of memory
 0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 1360 total bytes of memory
-BGP activity 4/0 prefixes, 4/0 paths, scan interval 60 secs
+BGP using 1384 total bytes of memory
+BGP activity 4/0 prefixes, 7/3 paths, scan interval 60 secs
 
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-23.23.23.23     4          520       9      10        5    0    0 00:03:33        2
-24.24.24.24     4          520       9      13        5    0    0 00:02:59        2
-25.25.25.25     4          520       6      10        5    0    0 00:02:22        0
+23.23.23.23     4          520      46      43        4    0    0 00:34:33        4
 2DE8:8A:FC:1:10:A3:0:38
-                4         2042     112     112        5    0    0 01:37:36        0
-46.12.1.37      4         2042     113     113        5    0    0 01:37:36        0
+                4         2042      12      14        4    0    0 00:06:58        0
+46.12.1.37      4         2042      12      12        4    0    0 00:07:01        0
 ```
 
 ### 3. Настройка офиса "Москва"
