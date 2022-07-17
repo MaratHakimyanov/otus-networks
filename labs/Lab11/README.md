@@ -15,38 +15,62 @@
 ### 1. Настройка фильтрации в офисе "Москва"
 
 Необходимо настроить фильтрацию в офисе "Москва" так, чтобы не появилось транзитного трафика. Для этого настроим As-path на маршрутизаторах R14 и R15.
+
 #### Маршрутизатор R14:
 ```
-
+ip as-path access-list 100 permit ^$
+ip as-path access-list 100 deny .*
+router bgp 1001
+  neighbor 46.12.1.2 filter-list 100 out
 ```
 
 #### Маршрутизатор R15:
 ```
-
+ip as-path access-list 100 permit ^$
+ip as-path access-list 100 deny .*
+router bgp 1001
+  neighbor 46.12.1.6 filter-list 100 out
 ```
 
-Проверим правильность настройки с помощью команд **show ?**.
+Проверим правильность настройки с помощью команд **sh ip bgp neighbors <адрес> advertised-routes**.
 #### Маршрутизатор R14:
 ```
+R14#sh ip bgp neighbors 46.12.1.2 advertised-routes 
 
+Total number of prefixes 0 
 ```
 
 #### Маршрутизатор R15:
 ```
+R15#sh ip bgp neighbors 46.12.1.6 advertised-routes 
 
+Total number of prefixes 0 
 ```
 ### 2. Настройка фильтрации в офисе "С.-Петербург"
 
 Необходимо настроить фильтрацию в офисе "С.-Петербург" так, чтобы не появилось транзитного трафика. Для этого настроим Prefix-list на маршрутизаторе R18.
 #### Маршрутизатор R18:
 ```
-
+ip prefix-list LIST_OUT1 seq 5 deny 46.12.1.0/30
+ip prefix-list LIST_OUT1 seq 10 deny 46.12.1.4/30
+ip prefix-list LIST_OUT1 seq 15 deny 46.12.1.8/30
+ip prefix-list LIST_OUT1 seq 20 deny 46.12.1.32/30
+ip prefix-list LIST_OUT1 seq 25 deny 46.12.1.20/30
+router bgp 2042
+  neighbor 46.12.1.34 prefix-list LIST_OUT1 out
+  neighbor 46.12.1.38 prefix-list LIST_OUT1 out
 ```
 
-Проверим правильность настройки с помощью команд **show ?**.
+Проверим правильность настройки с помощью команд **sh ip bgp neighbors <адрес> advertised-routes**.
 #### Маршрутизатор R18:
 ```
+R18#sh ip bgp neighbors 46.12.1.34 advertised-routes 
 
+Total number of prefixes 0 
+
+R18#sh ip bgp neighbors 46.12.1.38 advertised-routes 
+
+Total number of prefixes 0 
 ```
 
 
@@ -58,7 +82,7 @@
 
 ```
 
-Проверим правильность настройки с помощью команд **show ?**.
+Проверим правильность настройки с помощью команд **show ip route bgp**.
 #### Маршрутизатор R14:
 ```
 
@@ -71,7 +95,7 @@
 
 ```
 
-Проверим правильность настройки с помощью команд **show ?**.
+Проверим правильность настройки с помощью команд **show ip route bgp**.
 #### Маршрутизатор R15:
 ```
 
