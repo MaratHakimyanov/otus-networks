@@ -76,7 +76,7 @@ Total number of prefixes 0
 
 ### 3. Настройка провайдера "Киторн"
 
-Необходимо настроить провайдер "Киторн" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию. Для этого настроим prefix-list и route-map на маршрутизаторе R22.
+Необходимо настроить провайдер "Киторн" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию. Для этого настроим prefix-list и route-map на маршрутизаторах R22 и R14.
 #### Маршрутизатор R22:
 ```
 ip prefix-list DG1001 seq 5 deny 46.12.1.4/30
@@ -86,6 +86,17 @@ route-map RM-DG1001 permit 10
   match ip address prefix-list DG1001
 router bgp 101
   neighbor 46.12.1.1 route-map RM-DG1001 out
+```
+
+#### Маршрутизатор R14:
+```
+ip prefix-list DG1001 seq 5 deny 46.12.1.4/30
+ip prefix-list DG1001 seq 10 deny 46.12.1.8/30
+ip prefix-list DG1001 seq 15 deny 46.12.1.32/30
+route-map RM-DG1001 permit 10
+  match ip address prefix-list DG1001
+router bgp 1001
+  neighbor 46.12.1.2 route-map RM-DG1001 in
 ```
 
 Проверим правильность настройки с помощью команд **show ip route bgp**.
