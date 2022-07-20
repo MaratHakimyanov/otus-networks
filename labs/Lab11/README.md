@@ -117,7 +117,7 @@ Gateway of last resort is 46.12.1.3 to network 0.0.0.0
 ```
 
 ### 4. Настройка провайдера "Ламас"
-Необходимо настроить провайдер "Ламас" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию и префикс офиса "С.-Петербург". Для этого настроим prefix-list и route-map на маршрутизаторе R21.
+Необходимо настроить провайдер "Ламас" так, чтобы в офис "Москва" отдавался только маршрут по умолчанию и префикс офиса "С.-Петербург". Для этого настроим prefix-list и route-map на маршрутизаторах R21, R15 и R18.
 #### Маршрутизатор R21:
 ```
 ip prefix-list PR1001 seq 5 deny 46.12.1.0/30
@@ -126,6 +126,29 @@ ip prefix-list PR1001 seq 15 permit 46.12.1.32/30
 route-map RM-PR1001 permit 10
 match ip address prefix-list PR1001
 router bgp 301
+  neighbor 46.12.1.5 route-map RM-PR1001 out
+```
+
+#### Маршрутизатор R18:
+```
+ip prefix-list PR1001 seq 5 deny 46.12.1.0/30
+ip prefix-list PR1001 seq 10 deny 46.12.1.8/30
+ip prefix-list PR1001 seq 15 permit 46.12.1.32/30
+route-map RM-PR1001 permit 10
+match ip address prefix-list PR1001
+router bgp 2042
+  neighbor 46.12.1.33 route-map RM-PR1001 out
+  neighbor 46.12.1.37 route-map RM-PR1001 out
+```
+
+#### Маршрутизатор R15:
+```
+ip prefix-list PR1001 seq 5 deny 46.12.1.0/30
+ip prefix-list PR1001 seq 10 deny 46.12.1.8/30
+ip prefix-list PR1001 seq 15 permit 46.12.1.32/30
+route-map RM-PR1001 permit 10
+match ip address prefix-list PR1001
+router bgp 1001
   neighbor 46.12.1.5 route-map RM-PR1001 out
 ```
 
