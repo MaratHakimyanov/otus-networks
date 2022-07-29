@@ -220,7 +220,7 @@ router eigrp LAB8
   exit-address-family
 ```
 
-C помощью команды **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает маршруты по умолчанию.
+C помощью команд **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает маршруты по умолчанию.
 
 #### Маршрутизатор R32:
 ```
@@ -264,5 +264,53 @@ D   FDE8:8A:FC:1:10::/80 [90/1536000]
      via FE80::16, Ethernet0/0
 ```
 
+Для того, чтобы R32 получал только маршруты по умолчанию, настроим access-list и prefix-list на R32.
+#### Маршрутизатор R32:
+```
+access-list 5 deny   192.168.4.0 0.0.0.255
+access-list 5 deny   46.12.1.0 0.0.0.255
+access-list 5 permit any
+ipv6 prefix-list lab8 seq 5 deny FDE8:8A:FC:1:10::/80
+ipv6 prefix-list lab8 seq 5 deny 2DE8:8A:FC:1:10::/80
+ipv6 prefix-list lab8 seq 15 permit ::/0
+router eigrp LAB8
+  address-family ipv4 unicast autonomous-system 1
+    topology base
+      distribute-list 5 in
+  address-family ipv6 unicast autonomous-system 1
+    topology base
+      distribute-list prefix-list lab8 in    
+```
 
+C помощью команд **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает маршруты по умолчанию.
 
+#### Маршрутизатор R32:
+```
+R32#sh ip route eigrp  
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 192.168.4.9 to network 0.0.0.0
+
+D*EX  0.0.0.0/0 [170/2048000] via 192.168.4.9, 00:35:03, Ethernet0/0
+
+R32#sh ipv6 route eigrp
+IPv6 Routing Table - default - 4 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, la - LISP alt
+       lr - LISP site-registrations, ld - LISP dyn-eid, a - Application
+D   ::/0 [90/2048000]
+     via FE80::16, Ethernet0/0
+```
