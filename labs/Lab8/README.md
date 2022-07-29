@@ -282,7 +282,7 @@ router eigrp LAB8
       distribute-list prefix-list lab8 in    
 ```
 
-C помощью команд **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает маршруты по умолчанию.
+C помощью команд **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает только маршруты по умолчанию.
 
 #### Маршрутизатор R32:
 ```
