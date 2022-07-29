@@ -179,8 +179,10 @@ R32 должен получать только маршрут по умолча�
 Пропишем маршрут по умолчанию на R18.
 #### Маршрутизатор R18:
 ```
-ip route 0.0.0.0 0.0.0.0 46.12.1.17
-ipv6 route ::/0 2DE8:8A:FC:1:10:A3:0:28
+ip route 0.0.0.0 0.0.0.0 46.12.1.34
+ip route 0.0.0.0 0.0.0.0 46.12.1.38
+ipv6 route ::/0 2DE8:8A:FC:1:10:A3:0:37
+ipv6 route ::/0 2DE8:8A:FC:1:10:A3:0:39
 ```
 
 Настроим именованный EIGRP на R32.
@@ -218,6 +220,49 @@ router eigrp LAB8
   exit-address-family
 ```
 
+C помощью команды **show ip route eigrp** и **show ipv6 route eigrp** проверим, что R32 получает маршруты по умолчанию.
+
+#### Маршрутизатор R32:
+```
+R32#sh ip route eigrp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 192.168.4.9 to network 0.0.0.0
+
+D*EX  0.0.0.0/0 [170/2048000] via 192.168.4.9, 00:00:33, Ethernet0/0
+      192.168.4.0/24 is variably subnetted, 10 subnets, 3 masks
+D        192.168.4.0/30 [90/2048000] via 192.168.4.9, 00:25:29, Ethernet0/0
+D        192.168.4.4/30 [90/1536000] via 192.168.4.9, 00:25:29, Ethernet0/0
+D        192.168.4.12/30 [90/2048000] via 192.168.4.9, 00:25:24, Ethernet0/0
+D        192.168.4.16/30 [90/2048000] via 192.168.4.9, 00:25:24, Ethernet0/0
+D        192.168.4.20/30 [90/1536000] via 192.168.4.9, 00:25:29, Ethernet0/0
+D        192.168.4.24/30 [90/1536000] via 192.168.4.9, 00:25:29, Ethernet0/0
+D        192.168.4.28/30 [90/2048000] via 192.168.4.9, 00:25:24, Ethernet0/0
+D        192.168.4.128/25 [90/2048000] via 192.168.4.9, 00:25:24, Ethernet0/0
+
+R32#sh ipv6 route eigrp
+IPv6 Routing Table - default - 5 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, la - LISP alt
+       lr - LISP site-registrations, ld - LISP dyn-eid, a - Application
+D   ::/0 [90/2048000]
+     via FE80::16, Ethernet0/0
+D   FDE8:8A:FC:1:10::/80 [90/1536000]
+     via FE80::16, Ethernet0/0
+```
 
 
 
