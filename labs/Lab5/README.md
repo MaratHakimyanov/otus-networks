@@ -50,26 +50,36 @@ router bgp 520
 
 #### Коммутатор SW29:
 ```
-
-
-
-
-
-
-
-
-
-
+SW29#traceroute 192.168.52.2
+Type escape sequence to abort.
+Tracing the route to 192.168.52.2
+VRF info: (vrf in name/id, vrf out name/id)
+  1 80.80.1.129 2 msec 0 msec 1 msec
+  2  * 
+    89.110.29.221 0 msec 1 msec
+  3 192.168.52.5 0 msec 1 msec 1 msec
+  4 192.168.52.2 1 msec *  1 msec
 ```
 
 #### VPC30:
 ```
+VPC30> traceroute 192.168.52.2
+Bad command: "traceroute 192.168.52.2". Use ? for help.
 
+VPC30> trace 192.168.2.5     
+trace to 192.168.2.5, 8 hops max, press Ctrl+C to stop
+ 1   192.168.3.1   0.636 ms  0.304 ms  0.278 ms
+ 2     *46.12.1.25   0.851 ms  0.913 ms
+ 3   *192.168.2.5   1.118 ms (ICMP type:3, code:3, Destination port unreachable)  *
 ```
 
 #### VPC31:
 ```
-
+VPC31> trace 192.168.2.5
+trace to 192.168.2.5, 8 hops max, press Ctrl+C to stop
+ 1   192.168.3.1   0.549 ms  0.353 ms  0.309 ms
+ 2   46.12.1.25   0.579 ms  0.588 ms  0.659 ms
+ 3   *192.168.2.5   0.912 ms (ICMP type:3, code:3, Destination port unreachable)  *
 ```
 
 Настроим IP SLA на маршрутизаторе R28 для проверки доступности маршрутизаторов провайдера R25 и R26.
@@ -89,7 +99,26 @@ ip sla schedule 2 life forever start-time now
 Проверим работоспособность IP SLA на маршрутизаторе R28 c помощью команды **sh ip sla statistics**.
 #### Маршрутизатор R28:
 ```
+R28#sh ip sla statistics 
+IPSLAs Latest Operation Statistics
 
+IPSLA operation id: 1
+Latest RTT: 1 milliseconds
+Latest operation start time: 23:52:51 msk Mon Aug 1 2022
+Latest operation return code: OK
+Number of successes: 25
+Number of failures: 0
+Operation time to live: Forever
+
+
+
+IPSLA operation id: 2
+Latest RTT: 1 milliseconds
+Latest operation start time: 21:40:59 msk Mon Aug 1 2022
+Latest operation return code: OK
+Number of successes: 24
+Number of failures: 0
+Operation time to live: Forever
 ```
 
 ### 2. Настройка маршрута по-умолчанию для офиса "Лабытнанги" 
